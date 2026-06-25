@@ -13,4 +13,17 @@ def permutations(array)
   #
   # NOTE: the tests do not check for ordering, so a return of `[[1, 2], [2, 1]]`
   # will be treated the same as `[[2, 1], [1, 2]]`
+  calculated_permutations = []
+  if array.size == 0 || array.size == 1
+    calculated_permutations << array
+  else
+    array.each_with_index do |array_value, index|
+      sliced_array = array.dup
+      sliced_array.slice!(index)
+      permutations(sliced_array).each do |array_permutation|
+        calculated_permutations << array_permutation.unshift(array_value)
+      end
+    end
+  end
+  calculated_permutations
 end
