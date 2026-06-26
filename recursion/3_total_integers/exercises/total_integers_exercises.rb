@@ -15,6 +15,5 @@ def total_integers(array)
       integer_count += total_integers(array_value)
     end
   end
-
-  return integer_count
+  integer_count
 end
